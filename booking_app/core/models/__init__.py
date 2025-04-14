@@ -5,7 +5,7 @@ __all__ = (
     "Reservation",
 )
 
-from .db_helper import db_helper
 from .base import Base
-from .table import Table
+from .db_helper import db_helper
 from .reservation import Reservation
+from .table import Table
