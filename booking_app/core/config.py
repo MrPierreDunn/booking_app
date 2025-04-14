@@ -10,8 +10,15 @@ class RunModule(BaseModel):
     port: int = 8000
 
 
+class ApiV1Prefix(BaseModel):
+    prefix: str = "/v1"
+    tables: str = "/tables"
+    reservations: str = "/reservations"
+
+
 class ApiPrefix(BaseModel):
-    prefix: str = "/api/v1"
+    prefix: str = "/api"
+    v1: ApiV1Prefix = ApiV1Prefix()
 
 
 class DatabaseModule(BaseModel):
