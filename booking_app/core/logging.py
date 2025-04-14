@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 def setup_logging():
-    log_dir = Path("booking_app/core/logs")
+    log_dir = Path("core/logs")
     log_dir.mkdir(exist_ok=True)
 
     logging.basicConfig(
