@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from typing import Annotated
 
-from ..crud import reservations as crud_reservation
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.ext.asyncio import AsyncSession
+
 from core.models import db_helper
 from schemas.reservation import ReservationCreate, ReservationRead
+
+from ..crud import reservations as crud_reservation
 
 router = APIRouter(tags=["Reservations"])
 
@@ -44,5 +46,7 @@ async def delete_table(
     session: Annotated[AsyncSession, Depends(db_helper.session_getter)],
     reservation_id: int,
 ):
-    await crud_reservation.reservation_delete(session=session, reservation_id=reservation_id)
+    await crud_reservation.reservation_delete(
+        session=session, reservation_id=reservation_id
+    )
     return None

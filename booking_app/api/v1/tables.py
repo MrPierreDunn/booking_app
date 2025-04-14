@@ -1,9 +1,12 @@
 from typing import Annotated
+
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from ..crud import tables as crud_tables
+
 from core.models import db_helper
 from schemas.table import TableCreate, TableRead
+
+from ..crud import tables as crud_tables
 
 router = APIRouter(tags=["Tables"])
 

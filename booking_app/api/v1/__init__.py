@@ -2,8 +2,8 @@ from fastapi import APIRouter
 
 from core.config import settings
 
-from .tables import router as tables_router
 from .reservations import router as reservations_router
+from .tables import router as tables_router
 
 router = APIRouter(
     prefix=settings.api.v1.prefix,
