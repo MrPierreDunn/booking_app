@@ -42,7 +42,7 @@ async def create_reservation(
 
 
 @router.delete("/{reservation_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_table(
+async def delete_reservation(
     session: Annotated[AsyncSession, Depends(db_helper.session_getter)],
     reservation_id: int,
 ):
