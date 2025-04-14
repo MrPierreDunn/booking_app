@@ -1,5 +1,6 @@
-from datetime import datetime, timedelta
 import re
+from datetime import datetime, timedelta
+
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -19,7 +20,10 @@ class ReservationBase(BaseModel):
             if re.match(r'^\d{1,2}:\d{2}$', value):
                 today = datetime.now().date()
                 hours, minutes = map(int, value.split(':'))
-                return datetime.combine(today, datetime.min.time()) + timedelta(hours=hours, minutes=minutes)
+                return (
+                    datetime.combine(today, datetime.min.time()) +
+                    timedelta(hours=hours, minutes=minutes)
+                )
 
             elif re.match(r'^\d{2}\.\d{2}\.\d{4} \d{1,2}:\d{2}$', value):
                 return datetime.strptime(value, '%d.%m.%Y %H:%M')

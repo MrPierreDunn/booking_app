@@ -49,4 +49,6 @@ class Settings(BaseSettings):
     db: DatabaseModule
 
 
-settings = Settings(db={"url": "postgresql+asyncpg://user:password@localhost:5432/booking"})
+settings = Settings(
+    db={"url": "postgresql+asyncpg://user:password@localhost:5432/booking"}
+)

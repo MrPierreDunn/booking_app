@@ -1,11 +1,13 @@
 from contextlib import asynccontextmanager
+
 import uvicorn
 from fastapi import FastAPI
+from fastapi.responses import ORJSONResponse
+
 from api.v1 import router as api_router
 from core.config import settings
-from core.models import db_helper
-from fastapi.responses import ORJSONResponse
 from core.logging import setup_logging
+from core.models import db_helper
 
 setup_logging()
 
