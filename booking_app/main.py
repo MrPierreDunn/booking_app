@@ -5,6 +5,9 @@ from api.v1 import router as api_router
 from core.config import settings
 from core.models import db_helper
 from fastapi.responses import ORJSONResponse
+from core.logging import setup_logging
+
+setup_logging()
 
 
 @asynccontextmanager
