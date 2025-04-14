@@ -1,6 +1,8 @@
-from sqlalchemy.orm import Mapped, mapped_column, relationship
-from core.models import Base
 from typing import TYPE_CHECKING
+
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from core.models import Base
 
 if TYPE_CHECKING:
     from .reservation import Reservation
